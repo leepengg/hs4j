@@ -14,13 +14,6 @@
 	<description>A HandlerSocket client for java</description>
 	<url>http://code.google.com/p/hs4j/</url>
 	<packaging>jar</packaging>
-	<developers>
-		<developer>
-			<name>dennis zhuang</name>
-			<url>http://www.blogjava.net/killme2008/</url>
-			<timezone>8</timezone>
-		</developer>
-	</developers>
 
 	<licenses>
 		<license>
@@ -37,19 +30,7 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-gpg-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>sign-artifacts</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>sign</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -133,6 +114,16 @@
 		</dependency>
 
 	</dependencies>
+<distributionManagement>  
+ <repository>
+    <id>releases</id>
+    <url>http://172.16.7.213:8081/nexus/content/repositories/releases</url>
+  </repository>
+  <snapshotRepository>
+    <id>snapshots</id>
+    <url>http://172.16.7.213:8081/nexus/content/repositories/snapshots</url>
+  </snapshotRepository>
+</distributionManagement>  
 	<reporting>
 		<plugins>
 			<plugin>
