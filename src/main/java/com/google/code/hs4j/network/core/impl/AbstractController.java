@@ -358,11 +358,11 @@ public abstract class AbstractController implements Controller,
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			@Override
 			public void run() {
-				try {
-					AbstractController.this.stop();
-				} catch (IOException e) {
-					log.error("Stop controller fail", e);
-				}
+//				try {
+//					AbstractController.this.stop();
+//				} catch (IOException e) {
+//					log.error("Stop controller fail", e);
+//				}
 			}
 		});
 		log.warn("The Controller started at " + localSocketAddress + " ...");
