@@ -321,10 +321,12 @@ public abstract class AbstractNioSession extends AbstractSession implements
 			bufMsg.append("]");
 
 			bufMsg.append("\n");
+			/*
 			for(byte b: buff.array()) bufMsg.append("0x").append(Integer.toHexString(b)).append(",");
 			bufMsg.append("\n");
 			bufMsg.append(new String(buff.array()));	
 			log.debug(bufMsg.toString());
+			*/
 		}
 		return ((WritableByteChannel) channel).write(buffer.buf());
 	}
