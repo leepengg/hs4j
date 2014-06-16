@@ -86,6 +86,11 @@ public class IndexSessionImpl implements IndexSession {
 			TimeoutException, HandlerSocketException {
 		return this.client.insert(this.indexId, values);
 	}
+	
+	public boolean insert(byte[][] values) throws InterruptedException,
+			TimeoutException, HandlerSocketException {
+		return this.client.insert(this.indexId, values);
+}
 
 	public String insertIgnore(String[] values) throws InterruptedException,
     		TimeoutException, HandlerSocketException {
@@ -100,6 +105,20 @@ public class IndexSessionImpl implements IndexSession {
 	}
 
 	public int update(String[] keys, String[] values, FindOperator operator)
+			throws InterruptedException, TimeoutException,
+			HandlerSocketException {
+		return this.update(keys, values, operator, 1, 0);
+	}
+	
+	//byte
+	public int update(String[] keys, byte[][] values, FindOperator operator,
+			int limit, int offset) throws InterruptedException,
+			TimeoutException, HandlerSocketException {
+		return this.client.update(this.indexId, keys, values, operator, limit,
+				offset);
+	}
+	
+	public int update(String[] keys, byte[][] values, FindOperator operator)
 			throws InterruptedException, TimeoutException,
 			HandlerSocketException {
 		return this.update(keys, values, operator, 1, 0);

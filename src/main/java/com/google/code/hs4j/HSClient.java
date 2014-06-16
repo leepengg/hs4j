@@ -246,6 +246,9 @@ public interface HSClient {
      */
     public int update(int indexId, String[] keys, String[] values, FindOperator operator, int limit, int offset)
             throws InterruptedException, TimeoutException, HandlerSocketException;
+    
+    public int update(int indexId, String[] keys, byte[][] values, FindOperator operator, int limit, int offset)
+            throws InterruptedException, TimeoutException, HandlerSocketException;
 
 
     /**
@@ -331,6 +334,9 @@ public interface HSClient {
      */
     public boolean insert(int indexId, String[] values) throws InterruptedException, TimeoutException,
             HandlerSocketException;
+    
+    public boolean insert(int indexId, byte[][] values) throws InterruptedException, TimeoutException,
+    HandlerSocketException;
 
     /**
      * Insert data and does not throw exception if it is unsuccessful

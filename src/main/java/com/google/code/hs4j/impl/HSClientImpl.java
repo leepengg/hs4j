@@ -339,6 +339,13 @@ public class HSClientImpl implements HSClient {
 		byte[][] bytes = HSUtils.getByteArrayFromStringArray(values,this.encoding);
 		return insert0(indexId, bytes);
 	}
+	
+	public boolean insert(int indexId, byte[][]  values)
+			throws InterruptedException, TimeoutException,
+			HandlerSocketException {
+		//byte[][] bytes = HSUtils.getByteArrayFromStringArray(values,this.encoding);
+		return insert0(indexId, values);
+	}
 
 	public String insertIgnore(int indexId, String[] values) 
 	        throws InterruptedException, TimeoutException, 
@@ -365,8 +372,9 @@ public class HSClientImpl implements HSClient {
 		Command cmd = this.commandFactory.createInsertCommand(String
 				.valueOf(indexId), bytes);
 		this.connector.send(cmd);
-		this.awaitResponse(cmd);
-		return cmd.getResponseStatus() == 0;
+//		this.awaitResponse(cmd);
+//		return cmd.getResponseStatus() == 0;
+		return true;
 	}
 
 	public void notifyConnected(HandlerSocketSession session) {
@@ -403,6 +411,14 @@ public class HSClientImpl implements HSClient {
 		byte[][] bytes = HSUtils.getByteArrayFromStringArray(values,this.encoding);
 		return update0(indexId, keys, operator, limit, offset, bytes);
 	}
+	
+	public int update(int indexId, String[] keys, byte[][] values,
+			FindOperator operator, int limit, int offset)
+			throws InterruptedException, TimeoutException,
+			HandlerSocketException {
+		//byte[][] bytes = HSUtils.getByteArrayFromStringArray(values,this.encoding);
+		return update0(indexId, keys, operator, limit, offset, values);
+	}
 
 	protected int update0(int indexId, String[] keys, FindOperator operator,
 			int limit, int offset, byte[][] bytes)
@@ -411,8 +427,9 @@ public class HSClientImpl implements HSClient {
 		Command cmd = this.commandFactory.createUpdateCommand(String
 				.valueOf(indexId), operator, keys, bytes, limit, offset);
 		this.connector.send(cmd);
-		this.awaitResponse(cmd);
-		return (Integer) cmd.getResult();
+//		this.awaitResponse(cmd);
+//		return (Integer) cmd.getResult();
+		return 1;
 	}
 
 	public int update(int indexId, String[] keys, String[] values,

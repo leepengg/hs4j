@@ -133,6 +133,10 @@ public interface IndexSession {
 	public int update(String[] keys, String[] values, FindOperator operator)
 			throws InterruptedException, TimeoutException,
 			HandlerSocketException;
+	
+	public int update(String[] keys, byte[][] values, FindOperator operator)
+			throws InterruptedException, TimeoutException,
+			HandlerSocketException;
 
 	/**
 	 * Delete data from mysql
@@ -193,6 +197,9 @@ public interface IndexSession {
 	 * @throws HandlerSocketException
 	 */
 	public boolean insert(String[] values) throws InterruptedException,
+			TimeoutException, HandlerSocketException;
+	
+	public boolean insert(byte[][] values) throws InterruptedException,
 			TimeoutException, HandlerSocketException;
 
 	/**
